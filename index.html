@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>起始页 · LightNav</title>
+  <!-- Remix Icon 图标库（开源图标库，用于页面图标） -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+  <!-- 思源字体（Noto Sans SC）：开源、可商用 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Comic Neue 字体：开源免费，用于品牌标识，轻盈艺术感 -->
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- 样式表：按层次拆分，便于维护 -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/search.css">
+  <link rel="stylesheet" href="css/nav-section.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- 固定导航栏：始终在顶部，随区域改变透明度 -->
+  <header class="fixed-header" id="mainHeader">
+    <!-- 品牌文字：LightNav，使用 Comic Neue 字体 -->
+    <div class="brand" id="brandText">LightNav</div>
+    <!-- 右侧导航链接 -->
+    <nav class="nav-links">
+      <!-- 主页链接加粗表示当前位置 -->
+      <a href="#" class="home-link" id="homeLink">主页</a>
+      <!-- 更新日志与关于，点击在新标签页打开 -->
+      <a href="update/index.html" target="_blank" rel="noopener noreferrer">更新日志</a>
+      <a href="about/index.html" target="_blank" rel="noopener noreferrer">关于</a>
+    </nav>
+  </header>
+
+  <!-- 主视图容器：包含两个全屏区域，通过 transform 切换 -->
+  <div class="view-container" id="viewContainer">
+    <!-- 起始页（搜索区） -->
+    <section class="hero" id="hero">
+      <div class="center-content">
+        <!-- 时间显示组件 -->
+        <div class="time-wrapper" id="timeWidget" aria-label="当前时间">
+          <div class="time-display" id="timeText">--:--</div>
+          <div class="date-display" id="dateText">····</div>
+        </div>
+
+        <!-- 搜索条：引擎切换 + 输入框 + 搜索按钮 -->
+        <div class="search-bar">
+          <!-- 左侧搜索引擎切换按钮（正方形） -->
+          <div class="engine-box" id="engineSwitcher" title="点击切换搜索引擎 (当前: 必应)" role="button" tabindex="0" aria-label="切换搜索引擎">
+            <i class="ri-microsoft-line" id="engineIcon"></i>
+          </div>
+          <!-- 中间文本输入框 -->
+          <input type="text" class="search-input" id="searchInput" placeholder="输入搜索内容..." autofocus autocomplete="off" aria-label="搜索框">
+          <!-- 右侧搜索按钮（正方形） -->
+          <button class="search-btn" id="searchButton" title="搜索" aria-label="执行搜索">
+            <i class="ri-search-line"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 网址导航区 -->
+    <section class="nav-section" id="navSection">
+      <div class="nav-container">
+        <!-- 左侧分类栏（一个整体的亚克力框） -->
+        <div class="category-panel" id="categoryPanel"></div>
+        <!-- 右侧书签展示区域 -->
+        <div class="nav-bookmarks">
+          <div class="bookmarks-grid" id="bookmarksContainer"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 右下角固定按钮：用于切换上下区域，箭头方向自动变化 -->
+  <div class="scroll-btn" id="scrollBtn" title="向下浏览网址导航" role="button" tabindex="0" aria-label="切换至网址导航区">
+    <i class="ri-arrow-down-line" id="scrollIcon"></i>
+  </div>
+
+  <!-- 管理弹窗 -->
+  <div class="modal-overlay" id="manageModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>设置</h2>
+        <button class="modal-close" id="closeModal"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="modal-body">
+        <input type="file" id="importFileInput" accept=".json" style="display:none;">
+        <div class="modal-tabs">
+          <button class="modal-tab active" data-tab="categories">分类管理</button>
+          <button class="modal-tab" data-tab="bookmarks">网址管理</button>
+          <button class="modal-tab" data-tab="data">数据管理</button>
+        </div>
+        <div class="tab-content" id="tabCategories">
+          <div class="category-list" id="manageCategoryList"></div>
+          <div class="add-form">
+            <input type="text" class="form-input" id="newCategoryInput" placeholder="新分类名称">
+            <button class="form-btn" id="addCategoryBtn"><i class="ri-add-line"></i> 添加</button>
+          </div>
+        </div>
+        <div class="tab-content hidden" id="tabBookmarks">
+          <div class="bookmark-manage-header">
+            <select class="form-select" id="bookmarkFilterSelect"></select>
+          </div>
+          <div class="bookmark-list" id="manageBookmarkList"></div>
+          <div class="add-form">
+            <select class="form-select" id="bookmarkCategorySelect"></select>
+            <input type="text" class="form-input" id="newBookmarkName" placeholder="网站名称">
+            <input type="url" class="form-input" id="newBookmarkUrl" placeholder="网站地址">
+            <button class="form-btn" id="addBookmarkBtn"><i class="ri-add-line"></i> 添加</button>
+          </div>
+        </div>
+        <div class="tab-content hidden" id="tabData">
+          <div class="data-manage-section">
+            <div class="data-manage-item">
+              <div class="data-manage-info">
+                <i class="ri-download-line"></i>
+                <div>
+                  <h3>导出数据</h3>
+                  <p>将当前所有分类和网址导出为 JSON 文件，适用于备份或转移到其他浏览器</p>
+                </div>
+              </div>
+              <button class="form-btn" id="exportBtn"><i class="ri-download-line"></i> 导出</button>
+            </div>
+            <div class="data-manage-item">
+              <div class="data-manage-info">
+                <i class="ri-upload-line"></i>
+                <div>
+                  <h3>导入数据</h3>
+                  <p>从之前导出的 JSON 文件恢复数据，这将覆盖当前所有数据</p>
+                </div>
+              </div>
+              <button class="form-btn" id="importBtn"><i class="ri-upload-line"></i> 选择文件</button>
+            </div>
+            <div class="data-manage-item">
+              <div class="data-manage-info">
+                <i class="ri-restart-line"></i>
+                <div>
+                  <h3>恢复默认</h3>
+                  <p>将所有分类和网址恢复到初始状态，这不会影响已导出的数据</p>
+                </div>
+              </div>
+              <button class="form-btn" id="resetBtn"><i class="ri-restart-line"></i> 恢复</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript 模块：按功能拆分，加载顺序保证依赖 -->
+  <script src="js/time.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/bookmarks.js"></script>
+  <script src="js/viewSwitch.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

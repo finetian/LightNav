@@ -1,0 +1,132 @@
+/*
+ * responsive.css
+ * 响应式设计：针对不同屏幕尺寸调整尺寸、间距、布局。
+ * 已同步更新导航区的上内边距和高度计算，确保不被导航栏遮挡。
+ */
+
+/* 平板及小屏幕设备 (导航栏高度60px) */
+@media (max-width: 800px) {
+  .fixed-header {
+    padding: 0 18px;
+    height: 60px;
+  }
+  .view-container {
+    padding-top: 60px;
+  }
+  .hero, .nav-section {
+    height: calc(100vh - 60px);
+  }
+  /* 导航区上内边距 = 导航栏高度(60px) + 间距(24px) = 84px */
+  .nav-section {
+    padding: 84px 24px 24px 24px;
+  }
+  /* 导航主框高度重新计算 */
+  .nav-container {
+    height: calc(100vh - 60px - 84px - 24px);
+    flex-direction: column;
+  }
+  /* 分类栏变为横向滚动 */
+  .category-panel {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    max-height: 180px;
+  }
+  .category-btn {
+    flex: 1 0 calc(50% - 4px);
+    text-align: center;
+    padding: 12px 8px;
+  }
+  .brand {
+    font-size: 1.7rem;
+  }
+  .nav-links {
+    gap: 20px;
+  }
+}
+
+/* 手机横屏及更小设备 (导航栏高度60px) */
+@media (max-width: 560px) {
+  .hero {
+    padding: 1rem;
+  }
+  .center-content {
+    max-width: 100%;
+  }
+  .search-bar {
+    gap: 8px;
+  }
+  /* 缩小搜索条各组件尺寸 */
+  .engine-box,
+  .search-btn,
+  .scroll-btn {
+    width: 48px;
+    min-width: 48px;
+    height: 48px;
+    font-size: 1.6rem;
+  }
+  .engine-box i {
+    font-size: 1.7rem;
+  }
+  .search-input {
+    height: 48px;
+    font-size: 1rem;
+    padding: 0 0.9rem;
+  }
+  .search-btn i {
+    font-size: 1.8rem;
+  }
+  .time-display {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+  .scroll-btn {
+    bottom: 18px;
+    right: 18px;
+  }
+  /* 导航区内边距微调 */
+  .nav-section {
+    padding: 84px 16px 16px 16px;
+  }
+  .nav-container {
+    padding: 16px;
+    height: calc(100vh - 60px - 84px - 16px);
+  }
+}
+
+/* 超小屏幕（例如 iPhone SE） */
+@media (max-width: 400px) {
+  .search-bar {
+    gap: 6px;
+  }
+  .engine-box,
+  .search-btn,
+  .scroll-btn {
+    width: 44px;
+    min-width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+  }
+  .search-input {
+    height: 44px;
+    padding: 0 0.7rem;
+    font-size: 0.95rem;
+  }
+  .brand {
+    font-size: 1.4rem;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+}
+
+/* 全局焦点样式：提高可访问性 */
+.search-input:focus-visible,
+.engine-box:focus-visible,
+.search-btn:focus-visible,
+.scroll-btn:focus-visible,
+.category-btn:focus-visible,
+.nav-links a:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}

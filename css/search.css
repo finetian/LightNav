@@ -1,0 +1,167 @@
+/*
+ * search.css
+ * 搜索条、引擎切换按钮、输入框、搜索按钮、右下角浮动按钮的样式。
+ */
+
+/* 搜索条：使用 flex 布局，三个独立元素之间留有间距 */
+.search-bar {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  gap: 10px;
+}
+
+/*
+ * 亚克力半透明基础样式（直角、模糊、边框、阴影）。
+ * 应用于搜索条各组件、导航区、书签项等。
+ */
+.engine-box,
+.search-input,
+.search-btn,
+.scroll-btn,
+.nav-container,
+.category-panel,
+.bookmark-item {
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-radius: 0;                      /* 直角 */
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 6px 16px -6px rgba(0, 10, 30, 0.15);
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+  color: #0f1a2a;
+}
+
+/* 搜索条内的三个组件需要独立边框 */
+.engine-box,
+.search-input,
+.search-btn {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 左侧引擎切换按钮（正方形） */
+.engine-box {
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+}
+
+.engine-box:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: scale(0.96);
+}
+
+.engine-box:active {
+  background-color: rgba(255, 255, 255, 0.55);
+  transform: scale(0.94);
+}
+
+.engine-box i {
+  font-size: 1.9rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
+}
+
+/* 中间输入框 */
+.search-input {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  padding: 0 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #0b1a26;
+  background-color: rgba(255, 255, 255, 0.22);
+  outline: none;
+  font-family: inherit;
+  line-height: 1.4;
+}
+
+.search-input::placeholder {
+  color: #2d3f4f;
+  opacity: 0.65;
+  font-weight: 300;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.2);
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  background-color: rgba(255, 255, 255, 0.32);
+  box-shadow: inset 0 1px 4px rgba(0,0,0,0.05), 0 0 0 3px rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 右侧搜索按钮（正方形） */
+.search-btn {
+  width: 52px;
+  min-width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.8rem;
+  padding: 0;
+  background-color: rgba(255, 255, 255, 0.25);
+  line-height: 1;
+}
+
+.search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  transform: scale(0.96);
+}
+
+.search-btn:active {
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(0.94);
+}
+
+.search-btn i {
+  font-size: 2rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
+}
+
+/* 右下角固定按钮：用于切换视图，与搜索按钮等大，箭头方向动态变化 */
+.scroll-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 2rem;
+  color: #0f1a2a;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.6), 0 6px 16px -6px rgba(0,10,30,0.2);
+  border-radius: 0;
+  line-height: 1;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(255, 255, 255, 0.45);
+  transform: scale(0.96);
+}
+
+.scroll-btn:active {
+  background-color: rgba(255, 255, 255, 0.6);
+  transform: scale(0.94);
+}
+
+.scroll-btn i {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.05));
+}

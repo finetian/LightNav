@@ -1,0 +1,83 @@
+/*
+ * base.css
+ * 包含全局重置、字体设置、基础布局变量、主容器样式。
+ */
+
+/* 清除默认边距，统一盒模型 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body 背景设置：背景图固定、居中、覆盖；禁止滚动条 */
+body {
+  background: url('../image/background.png') center/cover no-repeat fixed;
+  background-color: #d9e2ef;   /* 图片加载失败时的备用色 */
+  height: 100vh;
+  overflow: hidden;             /* 隐藏原生滚动条，视图切换由 JS 控制 */
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * 主视图容器：包裹两个全屏区域，通过 translateY 实现平滑切换。
+ * 设置 padding-top 为固定导航栏留出空间。
+ */
+.view-container {
+  width: 100%;
+  height: 100vh;
+  padding-top: 64px;            /* 导航栏高度 */
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+}
+
+/* 起始页（搜索区）：高度为视口减去导航栏高度，使用 flex 居中内容 */
+.hero {
+  height: calc(100vh - 64px);   /* 减去导航栏高度，剩余空间完全用于内容 */
+  width: 100%;
+  display: flex;
+  align-items: center;          /* 垂直居中 */
+  justify-content: center;      /* 水平居中 */
+  padding: 1.5rem;
+}
+
+/* 内容居中容器（时间 + 搜索条），限制最大宽度 */
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* 时间显示区域：文字阴影增加可读性 */
+.time-wrapper {
+  text-align: center;
+  margin-bottom: 1.8rem;
+  user-select: none;
+  cursor: default;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.time-display {
+  font-size: clamp(2.8rem, 12vw, 4.2rem);
+  font-weight: 350;
+  letter-spacing: 2px;
+  color: #0b1a26;
+  line-height: 1.1;
+  opacity: 0.92;
+}
+
+.date-display {
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  font-weight: 400;
+  color: #1e2e3f;
+  margin-top: 6px;
+  letter-spacing: 1px;
+  opacity: 0.85;
+  text-transform: uppercase;
+}

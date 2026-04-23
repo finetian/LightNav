@@ -1,0 +1,70 @@
+/*
+ * header.css
+ * 固定导航栏样式：始终采用半透明亚克力效果，不再随区域切换。
+ */
+
+/* 固定导航栏：始终半透明，无动态类切换 */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  /* 始终半透明亚克力 */
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px -6px rgba(0, 10, 30, 0.1);
+  transition: none;  /* 移除过渡效果 */
+}
+
+/* 品牌标识：使用 Comic Neue 字体，轻盈艺术感 */
+.brand {
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+  font-weight: 300;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  color: #0f1a2a;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  opacity: 0.95;
+  cursor: default;
+  user-select: none;
+}
+
+/* 右侧导航链接容器 */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+/* 链接基本样式 */
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #0f1a2a;
+  transition: all 0.15s;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  letter-spacing: 0.5px;
+  opacity: 0.85;
+}
+
+.nav-links a:hover {
+  opacity: 1;
+  border-bottom-color: rgba(15, 26, 42, 0.3);
+}
+
+/* 主页链接特殊样式：加粗、下划线指示当前位置 */
+.nav-links a.home-link {
+  font-weight: 700;
+  opacity: 1;
+  border-bottom-color: rgba(15, 26, 42, 0.5);
+}

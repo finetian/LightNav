@@ -1,0 +1,207 @@
+/*
+ * style.css
+ * 更新日志页面样式，延续亚克力半透明直角风格。
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url('../image/background.png') center/cover no-repeat fixed;
+  background-color: #d9e2ef;
+  min-height: 100vh;
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  margin: 0;
+}
+
+/* 主卡片 */
+.update-card {
+  width: 100%;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 20px 40px -12px rgba(0, 10, 30, 0.2), inset 0 1px 2px rgba(255,255,255,0.6);
+  border-radius: 0;
+  padding: 32px 36px;
+  color: #0f1a2a;
+}
+
+/* 头部 */
+.update-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 16px;
+}
+
+.brand {
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+  font-weight: 300;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: #0f1a2a;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  opacity: 0.95;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #0f1a2a;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0;
+  transition: all 0.15s;
+  box-shadow: inset 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.back-link i {
+  font-size: 1.3rem;
+}
+
+.back-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* 内容区 */
+.update-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #0b1a26;
+  letter-spacing: 0.5px;
+  border-left: 4px solid rgba(15, 26, 42, 0.5);
+  padding-left: 16px;
+  margin-bottom: 8px;
+}
+
+.section-title i {
+  font-size: 2rem;
+  color: #1e2b3c;
+}
+
+/* 更新列表 */
+.changelog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.version-item {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 20px 24px;
+  border-radius: 0;
+  box-shadow: inset 0 1px 3px rgba(255,255,255,0.4);
+}
+
+.version-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.4);
+  padding-bottom: 10px;
+}
+
+.version-tag {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0a1622;
+}
+
+.version-date {
+  font-size: 0.95rem;
+  opacity: 0.75;
+  letter-spacing: 0.5px;
+}
+
+.version-changes {
+  list-style: none;
+  padding-left: 0;
+}
+
+.version-changes li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: #1a2a3a;
+}
+
+.version-changes li::before {
+  content: "•";
+  position: absolute;
+  left: 8px;
+  color: #0f1a2a;
+  opacity: 0.7;
+  font-weight: bold;
+}
+
+/* 页脚 */
+.update-footer {
+  margin-top: 28px;
+  text-align: right;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 16px;
+}
+
+.footer-line {
+  line-height: 1.6;
+}
+
+/* 响应式 */
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+  .update-card {
+    padding: 24px 20px;
+  }
+  .brand {
+    font-size: 1.8rem;
+  }
+  .back-link {
+    padding: 6px 12px;
+    font-size: 1rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .version-tag {
+    font-size: 1.2rem;
+  }
+}
