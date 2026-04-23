@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>起始页 · LightNav</title>
-  <!-- Remix Icon 图标库（开源图标库，用于页面图标） -->
+  <!-- Remix Icon 图标库 -->
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
-  <!-- 思源字体（Noto Sans SC）：开源、可商用 -->
+  <!-- 思源字体（Noto Sans SC） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Comic Neue 字体：开源免费，用于品牌标识，轻盈艺术感 -->
+  <!-- Comic Neue 字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- 样式表：按层次拆分，便于维护 -->
+  <!-- 样式表 -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/search.css">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <!-- 固定导航栏：始终在顶部，随区域改变透明度 -->
+  <!-- 固定导航栏 -->
   <header class="fixed-header" id="mainHeader">
     <!-- 品牌文字：LightNav，使用 Comic Neue 字体 -->
     <div class="brand" id="brandText">LightNav</div>
@@ -47,13 +47,13 @@
 
         <!-- 搜索条：引擎切换 + 输入框 + 搜索按钮 -->
         <div class="search-bar">
-          <!-- 左侧搜索引擎切换按钮（正方形） -->
+          <!-- 左侧搜索引擎切换按钮 -->
           <div class="engine-box" id="engineSwitcher" title="点击切换搜索引擎 (当前: 必应)" role="button" tabindex="0" aria-label="切换搜索引擎">
             <i class="ri-microsoft-line" id="engineIcon"></i>
           </div>
           <!-- 中间文本输入框 -->
           <input type="text" class="search-input" id="searchInput" placeholder="输入搜索内容..." autofocus autocomplete="off" aria-label="搜索框">
-          <!-- 右侧搜索按钮（正方形） -->
+          <!-- 右侧搜索按钮 -->
           <button class="search-btn" id="searchButton" title="搜索" aria-label="执行搜索">
             <i class="ri-search-line"></i>
           </button>
@@ -64,7 +64,7 @@
     <!-- 网址导航区 -->
     <section class="nav-section" id="navSection">
       <div class="nav-container">
-        <!-- 左侧分类栏（一个整体的亚克力框） -->
+        <!-- 左侧分类栏 -->
         <div class="category-panel" id="categoryPanel"></div>
         <!-- 右侧书签展示区域 -->
         <div class="nav-bookmarks">
@@ -150,7 +150,7 @@
     </div>
   </div>
 
-  <!-- JavaScript 模块：按功能拆分，加载顺序保证依赖 -->
+  <!-- JavaScript 模块 -->
   <script src="js/time.js"></script>
   <script src="js/search.js"></script>
   <script src="js/bookmarks.js"></script>
