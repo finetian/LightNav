@@ -3,7 +3,7 @@
  * 固定导航栏样式：始终采用半透明亚克力效果，不再随区域切换。
  */
 
-/* 固定导航栏：始终半透明，无动态类切换 */
+/* 固定导航栏 */
 .fixed-header {
   position: fixed;
   top: 0;
@@ -24,7 +24,7 @@
   transition: none;  /* 移除过渡效果 */
 }
 
-/* 品牌标识：使用 Comic Neue 字体，轻盈艺术感 */
+/* 使用 Comic Neue 字体 */
 .brand {
   font-family: 'Comic Neue', 'Comic Sans MS', cursive;
   font-weight: 300;

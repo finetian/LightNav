@@ -15,7 +15,7 @@
   padding: 88px 24px 24px 24px;
 }
 
-/* 导航主框：接近全屏但留有间距，亚克力大背景 */
+/* 导航主框 */
 .nav-container {
   width: 100%;
   max-width: 1400px;
@@ -32,7 +32,7 @@
   overflow: hidden;             /* 内部滚动由书签区处理 */
 }
 
-/* 左侧分类栏：一个独立的亚克力框，内部按钮无边框 */
+/* 左侧分类栏 */
 .category-panel {
   width: 200px;
   flex-shrink: 0;
@@ -50,7 +50,7 @@
   border-radius: 0;
 }
 
-/* 分类按钮：默认完全透明，与面板融合 */
+/* 分类按钮 */
 .category-btn {
   padding: 14px 16px;
   font-size: 1.1rem;
@@ -81,7 +81,7 @@
   transform: translateX(2px);
 }
 
-/* 激活状态的分类按钮：显示直角边框与半透明背景 */
+/* 激活状态的分类按钮 */
 .category-btn.active {
   background-color: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.8);
@@ -89,7 +89,7 @@
   font-weight: 550;
   color: #09141f;
 }
-/* 右侧书签展示区域：可滚动 */
+/* 右侧书签展示区域 */
 .nav-bookmarks {
   flex: 1;
   min-width: 0;
@@ -127,7 +127,7 @@
   font-size: 1.1rem;
 }
 
-/* 右侧书签展示区域：可滚动 */
+/* 右侧书签展示区域 */
 .nav-bookmarks {
   flex: 1;
   min-width: 0;
@@ -136,7 +136,7 @@
   padding-right: 4px;
 }
 
-/* 书签网格：响应式列数 */
+/* 书签网格 */
 .bookmarks-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
